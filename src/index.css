@@ -1,0 +1,9 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+
+.navLink {
+  @apply text-white hover:text-primary hover:border-b hover:border-solarFlareOrange
+}
+
