@@ -3,7 +3,7 @@ import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 
 export const merchApi = createApi({
   reducerPath: 'merchApi',
-  baseQuery: fetchBaseQuery({ baseUrl: '' }),
+  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BACKEND_BASE_URL, credentials: "include" }),
   endpoints: (builder) => ({
     getAllMerch: builder.query({
       query: (params?: Record<string, string>) => {

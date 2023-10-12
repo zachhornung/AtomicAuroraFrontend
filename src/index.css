@@ -7,3 +7,74 @@
   @apply text-white hover:text-primary hover:border-b hover:border-solarFlareOrange
 }
 
+.aurora {
+  width: 200px;
+  height: 200px;
+  position: relative;
+  animation: rotate 8s linear infinite;
+}
+
+.beam {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0.8;
+  border-radius: 50%;
+  transform: scale(0);
+  animation: pulse 8s ease-in-out infinite;
+}
+
+.beam1 {
+  background: radial-gradient(
+    ellipse farthest-corner at 30% 50%,
+    #ff00e6,
+    transparent
+  );
+}
+
+.beam2 {
+  background: radial-gradient(
+    ellipse farthest-corner at 70% 50%,
+    #00ffcc,
+    transparent
+  );
+}
+
+.beam3 {
+  background: radial-gradient(
+    ellipse farthest-corner at 50% 30%,
+    #0066ff,
+    transparent
+  );
+}
+
+.beam4 {
+  background: radial-gradient(
+    ellipse farthest-corner at 50% 70%,
+    #ff00e6,
+    transparent
+  );
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes pulse {
+  0% {
+    transform: scale(0);
+  }
+  50% {
+    transform: scale(1);
+    opacity: 0.8;
+  }
+  100% {
+    transform: scale(0);
+  }
+}
+

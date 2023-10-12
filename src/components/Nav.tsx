@@ -3,7 +3,7 @@ import { DarkModeToggle } from "./DarkModeToggle";
 
 export const Nav = () => {
   return (
-    <div className="sticky top-0 flex items-center justify-between bg-darkBlue p-4">
+    <div className="sticky top-0 flex items-center justify-between bg-darkBlue p-4 h-16">
       <div className="text-white text-2xl font-semibold">logo goes here</div>
       <nav className="flex items-center justify-between">
         <ul className="flex space-x-4">
