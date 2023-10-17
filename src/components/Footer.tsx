@@ -1,7 +1,7 @@
 
 export const Footer = () => {
   return (
-    <footer className="bg-gray-800 text-white py-6">
+    <footer className="sticky bottom-0 z-40 bg-gray-800 text-white py-6">
       <div className="container mx-auto flex justify-center items-center">
         <ul className="flex space-x-4">
           {/* Social Media Links */}

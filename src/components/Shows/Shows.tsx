@@ -8,18 +8,19 @@ export const Shows = () => {
 
   const { data, isLoading } = useGetAllShowsQuery(undefined, { refetchOnMountOrArgChange: true })
 
-  if (isLoading || true) {
+  console.log("data: ", data)
+  if (isLoading) {
     return <LoadingIcon/>
   }
 
   return (
-    <>
+    <div className="flex flex-col items-center justify-center w-full h-full flex-grow">
       {data?.map((show) => {
           return (
             <Show show={show}/>
           )
         })
       }
-    </>
+    </div>
   )
 }

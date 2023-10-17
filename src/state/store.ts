@@ -14,10 +14,12 @@ import {
 import storage from "redux-persist/lib/storage";
 import { merchApi } from "./services/merchApi";
 import { showsApi } from "./services/showsApi";
+import { picturesApi } from "./services/picturesApi"
 
 export const rootReducer = combineReducers({
   [merchApi.reducerPath]: persistReducer({key: "merchApi", storage}, merchApi.reducer),
   [showsApi.reducerPath]: persistReducer({key: "showsApi", storage}, showsApi.reducer),
+  [picturesApi.reducerPath]: persistReducer({key: "picturesApi", storage}, picturesApi.reducer),
 });
 
 export const makeStore = (preloadedState?: PreloadedState<RootState>) => {
@@ -32,6 +34,7 @@ export const makeStore = (preloadedState?: PreloadedState<RootState>) => {
       }).concat([
         showsApi.middleware,
         merchApi.middleware,
+        picturesApi.middleware,
       ]);
     },
   });
