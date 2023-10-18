@@ -44,9 +44,10 @@ export const PictureGrid = (props: PictureGridProps) => {
               key={`picture-${picture.id}`}
               src={picture.picture}
               alt={picture.description}
-              className="w-full h-full object-cover rounded-lg"
+              className="relative z-10 w-full h-full p-2 object-cover rounded-2xl"
               onClick={() => handlePictureClick(picture)}
             />
+            <div className="absolute top-0 left-0 w-full h-full ring-nebulaPink ring-opacity-50 shadow-2xl" style={{overflow: "hidden"}} />
           </motion.div>
         );
       })}

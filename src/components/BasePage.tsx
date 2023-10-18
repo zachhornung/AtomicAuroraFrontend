@@ -16,7 +16,9 @@ export const BasePage = (props: Props) => {
       <div className="flex-grow relative flex items-center justify-center text-center h-full">
         <div
           className="bg-fixed absolute inset-0 bg-cover bg-center flex-1"
-          style={{ backgroundImage: `url(${Bear})` }}
+          style={{ 
+            backgroundImage: `url(${Bear})`,
+          }}
         />
         <div className="absolute inset-0 bg-black opacity-80 flex-1"></div>
         <ChildrenContainer className="relative z-10 text-white h-full w-full flex-2 flex-grow">
