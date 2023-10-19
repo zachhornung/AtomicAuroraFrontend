@@ -2,6 +2,7 @@ import React from "react";
 import ReactDOM from "react-dom/client";
 import App from "./App.tsx";
 import "./index.css";
+import { BrowserRouter } from "react-router-dom";
 
 const themeToggleDarkIcon = document.getElementById("theme-toggle-dark-icon");
 const themeToggleLightIcon = document.getElementById("theme-toggle-light-icon");
@@ -48,6 +49,8 @@ themeToggleBtn?.addEventListener("click", function () {
 
 ReactDOM.createRoot(document.getElementById("root")!).render(
   <React.StrictMode>
-    <App />
+    <BrowserRouter>
+      <App />
+    </BrowserRouter>
   </React.StrictMode>,
 );
