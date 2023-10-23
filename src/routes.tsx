@@ -1,4 +1,3 @@
-import { motion } from "framer-motion";
 import { Home } from "./views/Home";
 import { ShowsView } from "./views/Shows";
 import { Merch } from "./views/Merch";

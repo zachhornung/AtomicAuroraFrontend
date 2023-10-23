@@ -10,7 +10,8 @@ import { getRoutes } from "./routes";
 import { cloneElement } from "react";
 
 function App() {
-  const element = useRoutes(getRoutes());
+  const routes = useRoutes(getRoutes());
+  // const adminRoutes = useRoutes()
   const location = useLocation();
   return (
     <>
@@ -18,7 +19,7 @@ function App() {
         <PersistGate persistor={appStorePersistor}>
           <ToastContainer />
           <AnimatePresence mode="wait">
-            {cloneElement(element || <></>, { key: location.pathname })}
+            {cloneElement(routes || <></>, { key: location.pathname })}
           </AnimatePresence>
         </PersistGate>
       </Provider>

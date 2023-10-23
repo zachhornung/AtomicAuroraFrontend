@@ -1,0 +1,26 @@
+steps:
+  # Install dependencies
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["install"]
+
+  # Build react app
+  - name: "gcr.io/cloud-builders/npm"
+    args: ["run", "build"]
+
+  - name: "gcr.io/cloud-builders/gcloud"
+    entrypoint: "bash"
+    args:
+      - "-c"
+      - |
+        echo "$(gcloud secrets versions access latest --secret=env-js)" >> /workspace/.env
+
+  # Copy artifacts to GCS bucket
+  - name: "gcr.io/cloud-builders/gsutil"
+    args:
+      [
+      "-m",
+      "cp",
+      "-r",
+      "dist/*",
+      "gs://${_BUCKET}",
+      ]
