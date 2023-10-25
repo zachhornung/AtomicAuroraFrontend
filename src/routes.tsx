@@ -4,6 +4,7 @@ import { Merch } from "./views/Merch";
 import { About } from "./views/About";
 import { Listen } from "./views/Listen";
 import { BasePageAnimation } from "./animations/pageAnimations";
+import { Login } from "./features/auth/views/Login";
 
 export const getRoutes = () => {
   return [
@@ -31,5 +32,9 @@ export const getRoutes = () => {
       path: "/listen",
       element: <BasePageAnimation><Listen /></BasePageAnimation> 
     },
+    {
+      path: "/login",
+      element: <BasePageAnimation><Login /></BasePageAnimation>
+    }
   ];
 };

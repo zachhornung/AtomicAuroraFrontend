@@ -29,6 +29,9 @@ export const Nav = () => {
           <li>
             <Link to="/about" className="navLink">About</Link>
           </li>
+          <li>
+            <Link to="/login" className="navLink">Login</Link>
+          </li>
         </ul>
       </nav>
       <DarkModeToggle />
