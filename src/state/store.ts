@@ -36,6 +36,7 @@ export const makeStore = (preloadedState?: PreloadedState<RootState>) => {
           ignoredActions: [FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE],
         }
       }).concat([
+        authApi.middleware,
         showsApi.middleware,
         merchApi.middleware,
         picturesApi.middleware,

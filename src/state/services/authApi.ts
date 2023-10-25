@@ -19,17 +19,31 @@ export interface LoginRequest {
   password: string
 }
 
+export interface GoogleLoginRequest {
+  code?: string
+}
+
 export const authApi = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: import.meta.env.VITE_BACKEND_BASE_URL, credentials: "include" }),
+  baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_BACKEND_BASE_URL}/api/`, credentials: "include" }),
   endpoints: (builder) => ({
     usernamePasswordLogin: builder.mutation<UserResponse, LoginRequest>({
       query: (credentials) => ({
-        url: 'api/v1/auth/login',
-        method: 'POST',
+        url: "authentication/login/",
+        method: "POST",
         body: credentials,
       }),
     }),
+    googleLogin: builder.mutation<UserResponse, GoogleLoginRequest>({
+      query: (googleCredentials) => ({
+        url: "authentication/google/",
+        method: "POST",
+        body: googleCredentials,
+      })
+    })
   }),
 })
 
-export const { useUsernamePasswordLoginMutation } = authApi
+export const { 
+  useUsernamePasswordLoginMutation,
+  useGoogleLoginMutation,
+} = authApi
