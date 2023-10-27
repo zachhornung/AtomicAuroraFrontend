@@ -1,4 +1,4 @@
-import { BasePage } from "../../../components/BasePage";
+import { BasePage } from "../../../shared/components/BasePage";
 import { GoogleLoginComponent } from "../components/GoogleLoginComponent";
 import { UsernamePasswordLogin } from "../components/UsernamePasswordLogin";
 

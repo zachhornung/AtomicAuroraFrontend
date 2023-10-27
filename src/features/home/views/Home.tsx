@@ -1,5 +1,5 @@
 import { toast } from "react-toastify"
-import { BasePage } from "../components/BasePage"
+import { BasePage } from "../../../shared/components/BasePage"
 
 export const Home = () => {
   return (

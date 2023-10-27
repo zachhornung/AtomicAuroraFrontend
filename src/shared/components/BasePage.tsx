@@ -1,7 +1,7 @@
 import { ReactNode } from "react";
 import { Nav } from "./Nav";
 import { Footer } from "./Footer";
-import Bear from "../assets/landscape-bear.png";
+import Bear from "../../assets/landscape-bear.png";
 import { ChildrenContainer } from "./ChildrenContainer";
 
 type Props = {

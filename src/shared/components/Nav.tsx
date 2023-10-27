@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import { DarkModeToggle } from "./DarkModeToggle";
-import AALogo from "../../public/AALogo.jpg";
+import AALogo from "../../../public/AALogo.jpg";
 
 export const Nav = () => {
   return (

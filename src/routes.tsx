@@ -1,10 +1,10 @@
-import { Home } from "./views/Home";
-import { ShowsView } from "./views/Shows";
-import { Merch } from "./views/Merch";
-import { About } from "./views/About";
-import { Listen } from "./views/Listen";
-import { BasePageAnimation } from "./animations/pageAnimations";
+import { About } from "./features/about/views/About";
 import { Login } from "./features/auth/views/Login";
+import { Home } from "./features/home/views/Home";
+import { Merch } from "./features/merch/views/Merch";
+import { Listen } from "./features/music/views/Listen";
+import { ShowsView } from "./features/shows/views/Shows";
+import { BasePageAnimation } from "./shared/animations/pageAnimations";
 
 export const getRoutes = () => {
   return [

@@ -1,4 +1,4 @@
-import { BasePage } from "../components/BasePage"
+import { BasePage } from "../../../shared/components/BasePage"
 
 export const About = () => {
   return (

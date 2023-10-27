@@ -6,7 +6,7 @@ import {
 import { toast } from "react-toastify";
 import { newUserState } from "../../../state/user";
 import { useAppDispatch } from "../../../state/store";
-import { LoadingIcon } from "../../../components/Loading";
+import { LoadingIcon } from "../../../shared/components/Loading";
 
 export const UsernamePasswordLogin = () => {
   const dispatch = useAppDispatch();

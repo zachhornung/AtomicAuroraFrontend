@@ -1,5 +1,5 @@
-import { ShowType } from "../../state/services/showsApi";
-import { getFormattedDateTime } from "../../utils";
+import { ShowType } from "../../../state/services/showsApi";
+import { getFormattedDateTime } from "../../../utils";
 import { PictureGrid } from "../Pictures/PictureGrid";
 
 type ShowCardProps = {
