@@ -13,17 +13,36 @@ import {
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
 import { authApi } from "./services/authApi";
-import { merchApi } from "./services/merchApi";
+import { productsApi } from "./services/productsApi";
 import { showsApi } from "./services/showsApi";
-import { picturesApi } from "./services/picturesApi"
-import userReducer from "./user"
+import { picturesApi } from "./services/picturesApi";
+import userReducer from "./user";
+import cartReducer from "./cart";
+import { musicApi } from "./services/musicApi";
 
 export const rootReducer = combineReducers({
-  user: persistReducer({key: "user", storage}, userReducer),
-  [authApi.reducerPath]: persistReducer({key: "authApi", storage}, authApi.reducer),
-  [merchApi.reducerPath]: persistReducer({key: "merchApi", storage}, merchApi.reducer),
-  [showsApi.reducerPath]: persistReducer({key: "showsApi", storage}, showsApi.reducer),
-  [picturesApi.reducerPath]: persistReducer({key: "picturesApi", storage}, picturesApi.reducer),
+  user: persistReducer({ key: "user", storage }, userReducer),
+  cart: persistReducer({ key: "cart", storage }, cartReducer),
+  [authApi.reducerPath]: persistReducer(
+    { key: "authApi", storage },
+    authApi.reducer,
+  ),
+  [productsApi.reducerPath]: persistReducer(
+    { key: "productsApi", storage },
+    productsApi.reducer,
+  ),
+  [showsApi.reducerPath]: persistReducer(
+    { key: "showsApi", storage },
+    showsApi.reducer,
+  ),
+  [picturesApi.reducerPath]: persistReducer(
+    { key: "picturesApi", storage },
+    picturesApi.reducer,
+  ),
+  [musicApi.reducerPath]: persistReducer(
+    { key: "musicApi", storage },
+    musicApi.reducer,
+  ),
 });
 
 export const makeStore = (preloadedState?: PreloadedState<RootState>) => {
@@ -34,27 +53,28 @@ export const makeStore = (preloadedState?: PreloadedState<RootState>) => {
       return getDefaultMiddleware({
         serializableCheck: {
           ignoredActions: [FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE],
-        }
+        },
       }).concat([
         authApi.middleware,
         showsApi.middleware,
-        merchApi.middleware,
+        productsApi.middleware,
         picturesApi.middleware,
+        musicApi.middleware,
       ]);
     },
   });
 };
 
-export const store = makeStore()
+export const store = makeStore();
 
-export const appStorePersistor = persistStore(store)
+export const appStorePersistor = persistStore(store);
 
 export type RootState = ReturnType<typeof rootReducer>;
-export type AppStore = ReturnType<typeof makeStore>
-export type AppState =  ReturnType<typeof store.getState>
+export type AppStore = ReturnType<typeof makeStore>;
+export type AppState = ReturnType<typeof store.getState>;
 export type AppDispatch = typeof store.dispatch;
 
-export type Store = typeof store
+export type Store = typeof store;
 
 export const useAppDispatch: () => AppDispatch = useDispatch;
 export const useAppSelector: TypedUseSelectorHook<RootState> = useSelector;

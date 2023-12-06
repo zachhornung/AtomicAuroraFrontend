@@ -1,7 +1,7 @@
 import { About } from "./features/about/views/About";
 import { Login } from "./features/auth/views/Login";
 import { Home } from "./features/home/views/Home";
-import { Merch } from "./features/merch/views/Merch";
+import { ProductsView } from "./features/products/views/Products";
 import { Listen } from "./features/music/views/Listen";
 import { ShowsView } from "./features/shows/views/Shows";
 import { BasePageAnimation } from "./shared/animations/pageAnimations";
@@ -21,8 +21,8 @@ export const getRoutes = () => {
       element: <BasePageAnimation><ShowsView /></BasePageAnimation> 
     },
     {
-      path: "/merch",
-      element: <BasePageAnimation><Merch /></BasePageAnimation> 
+      path: "/products",
+      element: <BasePageAnimation><ProductsView /></BasePageAnimation> 
     },
     {
       path: "/about",

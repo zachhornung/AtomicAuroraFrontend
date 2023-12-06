@@ -18,7 +18,7 @@ export const Nav = () => {
             <Link to="/home" className="navLink">Home</Link>
           </li>
           <li>
-            <Link to="/merch" className="navLink">Merch</Link>
+            <Link to="/products" className="navLink">Merch</Link>
           </li>
           <li>
             <Link to="/shows" className="navLink">Shows</Link>
@@ -29,11 +29,13 @@ export const Nav = () => {
           <li>
             <Link to="/about" className="navLink">About</Link>
           </li>
-          <li>
-            <Link to="/login" className="navLink">Login</Link>
-          </li>
         </ul>
       </nav>
+      <ul className="flex justify-end">
+        <li>
+          <Link to="/login" className="navLink">Login</Link>
+        </li>
+      </ul>
       <DarkModeToggle />
     </div>
   );

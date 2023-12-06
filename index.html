@@ -15,11 +15,21 @@
       } else {
         document.documentElement.classList.remove('dark')
       }
+      window.onSpotifyIframeApiReady = (iframeApi) => {
+        console.log(iframeApi)
+        const element = document.getElementById("embed-iframe")
+        const callback = (embedController) => {
+          const songs = document.querySelectorAll(".spotify-song")
+          songs.forEach(song => song.addEventListener("click", () => embedController.loadUri(song.dataset.spotifyId)))
+        }
+        iframeApi.createController(element, {uri: "spotify:track:48ufaWHVUZY0TlZ6snjPsj"}, callback)
+      }
     </script>
   </head>
   <body>
     <div id="root"></div>
     <script type="module" src="/src/main.tsx"></script>
     <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+    <script src="https://open.spotify.com/embed/iframe-api/v1" async></script>
   </body>
 </html>
