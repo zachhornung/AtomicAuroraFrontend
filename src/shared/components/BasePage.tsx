@@ -21,7 +21,7 @@ export const BasePage = (props: Props) => {
           }}
         />
         <div className="absolute inset-0 bg-black opacity-80 flex-1"></div>
-        <ChildrenContainer className="relative z-10 text-white h-full w-full flex-2 flex-grow">
+        <ChildrenContainer className="overflow-y-scroll relative z-10 text-white h-full w-full flex-1 flex-grow">
           {children}
         </ChildrenContainer>
       </div>

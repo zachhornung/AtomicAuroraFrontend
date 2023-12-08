@@ -1,7 +1,7 @@
 import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Picture } from "./picturesApi";
 
-export type Product = {
+export type ProductType = {
   kind: string;
   name: string;
   description: string;
@@ -17,7 +17,7 @@ export const productsApi = createApi({
     credentials: "include",
   }),
   endpoints: (builder) => ({
-    getAllProducts: builder.query<Product[], Record<string, string> | void>({
+    getAllProducts: builder.query<ProductType[], Record<string, string> | void>({
       query: (params?: Record<string, string>) => {
         if (params) {
           const q = new URLSearchParams(params);
@@ -32,4 +32,4 @@ export const productsApi = createApi({
   }),
 });
 
-export const { useGetAllProductsQuery, useGetProductDetailQuery } = productsApi
+export const { useGetAllProductsQuery, useGetProductDetailQuery } = productsApi;

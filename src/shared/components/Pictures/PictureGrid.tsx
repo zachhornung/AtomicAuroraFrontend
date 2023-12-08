@@ -10,33 +10,33 @@ export type PictureGridProps = {
 export const PictureGrid = (props: PictureGridProps) => {
   const { pictures } = props;
 
-  const [isModalOpen, setIsModalOpen] = useState(false)
-  const [selectedPicture, setSelectedPicture] = useState<Picture | undefined>()
-  
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedPicture, setSelectedPicture] = useState<Picture | undefined>();
+
   const handlePictureClick = (picture: Picture) => {
-    setSelectedPicture(picture)
-    setIsModalOpen(true)
-  }
+    setSelectedPicture(picture);
+    setIsModalOpen(true);
+  };
 
   const closeModal = () => {
-    setIsModalOpen(false)
-  }
+    setIsModalOpen(false);
+  };
 
   const pictureVariants = {
     hover: {
       scale: 1.1,
       transition: {
         duration: 0.3,
-      }
-    }
-  }
-
+      },
+    },
+  };
+// grid grid-cols-2 gap-4 border-2 border-blue-500 md:grid-cols-3 lg:grid-cols-4
   return (
-    <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+    <div className="flex flex-wrap justify-center items-center">
       {pictures.map((picture) => {
         return (
-          <motion.div 
-            className="relative group hover:cursor-pointer"
+          <motion.div
+            className="relative w-1/2 hover:cursor-pointer group"
             whileHover="hover"
             variants={pictureVariants}
           >
@@ -44,14 +44,17 @@ export const PictureGrid = (props: PictureGridProps) => {
               key={`picture-${picture.id}`}
               src={picture.picture}
               alt={picture.description}
-              className="relative z-10 w-full h-full p-2 object-cover rounded-2xl"
+              className="object-cover relative z-10 p-2 w-full h-full rounded-2xl max-h-64"
               onClick={() => handlePictureClick(picture)}
             />
-            <div className="absolute top-0 left-0 w-full h-full ring-nebulaPink ring-opacity-50 shadow-2xl" style={{overflow: "hidden"}} />
+            <div
+              className="absolute top-0 left-0 w-full h-full ring-opacity-50 shadow-2xl ring-nebulaPink"
+              // style={{ overflow: "hidden" }}
+            />
           </motion.div>
         );
       })}
-      <PictureModal 
+      <PictureModal
         isOpen={isModalOpen}
         onRequestClose={closeModal}
         picture={selectedPicture}
