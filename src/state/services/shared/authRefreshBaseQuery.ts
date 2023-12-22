@@ -5,7 +5,7 @@ import type {
   FetchBaseQueryError,
 } from "@reduxjs/toolkit/query";
 import { Mutex } from "async-mutex";
-import { resetUserState } from "../../user";
+import { resetUserState } from "../../../features/auth/state/user";
 
 type BaseQueryParams = BaseQueryFn<
   string | FetchArgs,
@@ -15,7 +15,10 @@ type BaseQueryParams = BaseQueryFn<
 
 // create a new mutex
 const mutex = new Mutex();
-const baseQuery = fetchBaseQuery({ baseUrl: "/" });
+const baseQuery = fetchBaseQuery({
+  baseUrl: `${import.meta.env.VITE_BACKEND_BASE_URL}/api/`,
+  credentials: "include",
+});
 
 export const baseQueryWithReauth: BaseQueryParams = async (
   args,
@@ -31,7 +34,10 @@ export const baseQueryWithReauth: BaseQueryParams = async (
       const release = await mutex.acquire();
       try {
         const refreshResult = await baseQuery(
-          "/refreshToken",
+          {
+            url: "authentication/token/refresh/",
+            method: "POST",
+          },
           api,
           extraOptions,
         );

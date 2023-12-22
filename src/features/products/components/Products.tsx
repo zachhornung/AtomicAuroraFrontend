@@ -1,5 +1,5 @@
 import { LoadingIcon } from "../../../shared/components/Loading"
-import { useGetAllProductsQuery } from "../../../state/services/productsApi"
+import { useGetAllProductsQuery } from "../state/services/productsApi"
 import { Product } from "./Product"
 
 export const Products = () => {

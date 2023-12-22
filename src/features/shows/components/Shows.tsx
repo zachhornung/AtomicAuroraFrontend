@@ -1,5 +1,5 @@
 import { LoadingIcon } from "../../../shared/components/Loading"
-import { useGetAllShowsQuery } from "../../../state/services/showsApi"
+import { useGetAllShowsQuery } from "../state/services/showsApi"
 import { Show } from "./Show"
 
 

@@ -12,13 +12,13 @@ import {
   REHYDRATE,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { authApi } from "./services/authApi";
-import { productsApi } from "./services/productsApi";
-import { showsApi } from "./services/showsApi";
+import { authApi } from "../features/auth/state/services/authApi";
+import userReducer from "../features/auth/state/user"
+import cartReducer from "../features/cart/state/cart"
 import { picturesApi } from "./services/picturesApi";
-import userReducer from "./user";
-import cartReducer from "./cart";
-import { musicApi } from "./services/musicApi";
+import { productsApi } from "../features/products/state/services/productsApi";
+import { showsApi } from "../features/shows/state/services/showsApi";
+import { musicApi } from "../features/music/state/services/musicApi";
 
 export const rootReducer = combineReducers({
   user: persistReducer({ key: "user", storage }, userReducer),
