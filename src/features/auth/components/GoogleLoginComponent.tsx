@@ -1,9 +1,9 @@
 import { CodeResponse, useGoogleLogin } from "@react-oauth/google";
-import { useGoogleLoginMutation } from "../../../state/services/authApi";
 import { useAppDispatch } from "../../../state/store";
-import { newUserState } from "../../../state/user";
 import { toast } from "react-toastify";
 import { LoadingIcon } from "../../../shared/components/Loading";
+import { useGoogleLoginMutation } from "../state/services/authApi";
+import { newUserState } from "../state/user";
 
 export const GoogleLoginComponent = () => {
   const [login, { isLoading }] = useGoogleLoginMutation();

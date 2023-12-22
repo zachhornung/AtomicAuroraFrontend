@@ -1,5 +1,5 @@
 import { BasePage } from "../../../shared/components/BasePage"
-import { useGetSpotifyTopTracksQuery } from "../../../state/services/musicApi"
+import { useGetSpotifyTopTracksQuery } from "../state/services/musicApi"
 
 
 export const Listen = () => {

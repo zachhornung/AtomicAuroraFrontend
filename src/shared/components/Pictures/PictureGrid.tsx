@@ -1,7 +1,7 @@
 import { useState } from "react";
-import { Picture } from "../../state/services/picturesApi";
 import { motion } from "framer-motion";
 import { PictureModal } from "./PictureModal";
+import { Picture } from "../../../state/services/picturesApi";
 
 export type PictureGridProps = {
   pictures: Picture[];
