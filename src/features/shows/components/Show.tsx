@@ -1,5 +1,5 @@
 import { ShowCard } from "../../../shared/components/Cards/Card";
-import { ShowType } from "../../../state/services/showsApi";
+import { ShowType } from "../state/services/showsApi";
 
 type ShowProps = {
   show: ShowType;
