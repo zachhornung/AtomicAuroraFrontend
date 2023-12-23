@@ -1,9 +1,10 @@
-import { Home } from "./views/Home";
-import { ShowsView } from "./views/Shows";
-import { Merch } from "./views/Merch";
-import { About } from "./views/About";
-import { Listen } from "./views/Listen";
-import { BasePageAnimation } from "./animations/pageAnimations";
+import { About } from "./features/about/views/About";
+import { Login } from "./features/auth/views/Login";
+import { Home } from "./features/home/views/Home";
+import { ProductsView } from "./features/products/views/Products";
+import { Listen } from "./features/music/views/Listen";
+import { ShowsView } from "./features/shows/views/Shows";
+import { BasePageAnimation } from "./shared/animations/pageAnimations";
 
 export const getRoutes = () => {
   return [
@@ -20,8 +21,8 @@ export const getRoutes = () => {
       element: <BasePageAnimation><ShowsView /></BasePageAnimation> 
     },
     {
-      path: "/merch",
-      element: <BasePageAnimation><Merch /></BasePageAnimation> 
+      path: "/products",
+      element: <BasePageAnimation><ProductsView /></BasePageAnimation> 
     },
     {
       path: "/about",
@@ -31,5 +32,9 @@ export const getRoutes = () => {
       path: "/listen",
       element: <BasePageAnimation><Listen /></BasePageAnimation> 
     },
+    {
+      path: "/login",
+      element: <BasePageAnimation><Login /></BasePageAnimation>
+    }
   ];
 };
