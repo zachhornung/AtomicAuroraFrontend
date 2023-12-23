@@ -1,3 +1,4 @@
+/* eslint-disable no-undef */
 /** @type {import('tailwindcss').Config} */
 export default {
   content: [
@@ -20,8 +21,8 @@ export default {
     },
   },
   plugins: [
-    // eslint-disable-next-line no-undef
-    require('flowbite/plugin')
+    require('flowbite/plugin'),
+    require("rippleui")
   ],
 }
 
