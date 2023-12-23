@@ -27,7 +27,7 @@ jobs:
           username: ${{ secrets.DOCKER_USERNAME }}
           password: ${{ secrets.DOCKER_PASSWORD }}
         env:
-          USE_DOCKER: "yes"
+          USE_DOCKER: 'yes'
           IPYTHONDIR: /app/.ipython
           REDIS_URL: redis://redis:6379/0
           CELERY_FLOWER_USER: debug
@@ -73,7 +73,6 @@ jobs:
           CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
           # Creating a token https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/creating-a-personal-access-token
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
   lint:
     runs-on: ubuntu-22.04
     steps:

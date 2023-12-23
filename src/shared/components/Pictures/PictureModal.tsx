@@ -1,5 +1,5 @@
 import { AnimatePresence, motion } from "framer-motion"; // Import motion from framer-motion
-import { Picture } from "../../state/services/picturesApi";
+import { Picture } from "../../../state/services/picturesApi";
 
 export type PictureModalProps = {
   isOpen: boolean;

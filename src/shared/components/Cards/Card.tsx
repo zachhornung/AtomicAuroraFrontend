@@ -1,4 +1,4 @@
-import { ShowType } from "../../../state/services/showsApi";
+import { ShowType } from "../../../features/shows/state/services/showsApi";
 import { getFormattedDateTime } from "../../../utils";
 import { PictureGrid } from "../Pictures/PictureGrid";
 

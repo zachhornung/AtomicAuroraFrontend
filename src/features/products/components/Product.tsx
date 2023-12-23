@@ -1,5 +1,5 @@
 import { PictureGrid } from "../../../shared/components/Pictures/PictureGrid";
-import { ProductType } from "../../../state/services/productsApi";
+import { ProductType } from "../state/services/productsApi";
 
 type ProductProps = {
   product: ProductType;

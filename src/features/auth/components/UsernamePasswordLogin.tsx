@@ -1,12 +1,9 @@
 import { useState } from "react";
-import {
-  LoginRequest,
-  useUsernamePasswordLoginMutation,
-} from "../../../state/services/authApi";
 import { toast } from "react-toastify";
-import { newUserState } from "../../../state/user";
 import { useAppDispatch } from "../../../state/store";
 import { LoadingIcon } from "../../../shared/components/Loading";
+import { LoginRequest, useUsernamePasswordLoginMutation } from "../state/services/authApi";
+import { newUserState } from "../state/user";
 
 export const UsernamePasswordLogin = () => {
   const dispatch = useAppDispatch();

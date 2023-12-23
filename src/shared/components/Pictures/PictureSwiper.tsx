@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { wrap } from "popmotion";
-import { Picture } from "../../state/services/picturesApi";
+import { Picture } from "../../../state/services/picturesApi";
 
 const variants = {
   enter: (direction: number) => {

@@ -1,5 +1,5 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-import { Picture } from './picturesApi'
+import { Picture } from '../../../../state/services/picturesApi'
 
 
 export type ShowType = {
