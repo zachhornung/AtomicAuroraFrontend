@@ -12,37 +12,14 @@ import {
   REHYDRATE,
 } from "redux-persist";
 import storage from "redux-persist/lib/storage";
-import { authApi } from "../features/auth/state/services/authApi";
 import userReducer from "../features/auth/state/user"
 import cartReducer from "../features/cart/state/cart"
-import { picturesApi } from "./services/picturesApi";
-import { productsApi } from "../features/products/state/services/productsApi";
-import { showsApi } from "../features/shows/state/services/showsApi";
-import { musicApi } from "../features/music/state/services/musicApi";
+import { apiSlice } from "./services/shared/apiSlice";
 
 export const rootReducer = combineReducers({
   user: persistReducer({ key: "user", storage }, userReducer),
   cart: persistReducer({ key: "cart", storage }, cartReducer),
-  [authApi.reducerPath]: persistReducer(
-    { key: "authApi", storage },
-    authApi.reducer,
-  ),
-  [productsApi.reducerPath]: persistReducer(
-    { key: "productsApi", storage },
-    productsApi.reducer,
-  ),
-  [showsApi.reducerPath]: persistReducer(
-    { key: "showsApi", storage },
-    showsApi.reducer,
-  ),
-  [picturesApi.reducerPath]: persistReducer(
-    { key: "picturesApi", storage },
-    picturesApi.reducer,
-  ),
-  [musicApi.reducerPath]: persistReducer(
-    { key: "musicApi", storage },
-    musicApi.reducer,
-  ),
+  [apiSlice.reducerPath]: persistReducer({key: "apiSlice", storage}, apiSlice.reducer)
 });
 
 export const makeStore = (preloadedState?: PreloadedState<RootState>) => {
@@ -55,11 +32,7 @@ export const makeStore = (preloadedState?: PreloadedState<RootState>) => {
           ignoredActions: [FLUSH, PAUSE, PERSIST, PURGE, REGISTER, REHYDRATE],
         },
       }).concat([
-        authApi.middleware,
-        showsApi.middleware,
-        productsApi.middleware,
-        picturesApi.middleware,
-        musicApi.middleware,
+        apiSlice.middleware
       ]);
     },
   });

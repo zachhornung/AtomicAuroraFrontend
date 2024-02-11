@@ -1,5 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
-
+import { apiSlice } from "./shared/apiSlice"
 
 export type Picture = {
   id: number,
@@ -7,9 +6,7 @@ export type Picture = {
   picture: string,
 }
 
-export const picturesApi = createApi({
-  reducerPath: 'picturesApi',
-  baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_BACKEND_BASE_URL}/api/`, credentials: "include" }),
+export const picturesApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllPictures: builder.query<Picture[], Record<string, string> | undefined>({
       query: (params) => {
@@ -19,6 +16,7 @@ export const picturesApi = createApi({
         }
         return 'pictures/'
       },
+      providesTags: ["Pictures"]
     }),
     getPictureDetail: builder.query<Picture, number>({
       query: (id) => `pictures/${id}`

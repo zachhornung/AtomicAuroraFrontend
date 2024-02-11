@@ -1,7 +1,8 @@
-import { createApi, fetchBaseQuery } from "@reduxjs/toolkit/query/react";
 import { Picture } from "../../../../state/services/picturesApi";
+import { apiSlice } from "../../../../state/services/shared/apiSlice";
 
 export type ProductType = {
+  id: number,
   kind: string;
   name: string;
   description: string;
@@ -10,12 +11,7 @@ export type ProductType = {
   pictures?: Picture[];
 };
 
-export const productsApi = createApi({
-  reducerPath: "productsApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl: `${import.meta.env.VITE_BACKEND_BASE_URL}/api/`,
-    credentials: "include",
-  }),
+export const productsApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllProducts: builder.query<ProductType[], Record<string, string> | void>({
       query: (params?: Record<string, string>) => {
@@ -25,6 +21,7 @@ export const productsApi = createApi({
         }
         return "products/";
       },
+      providesTags: ["Products"]
     }),
     getProductDetail: builder.query({
       query: (id: number) => `products/${id}`,

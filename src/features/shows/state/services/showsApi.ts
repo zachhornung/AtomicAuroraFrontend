@@ -1,5 +1,5 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { Picture } from '../../../../state/services/picturesApi'
+import { apiSlice } from '../../../../state/services/shared/apiSlice'
 
 
 export type ShowType = {
@@ -9,9 +9,7 @@ export type ShowType = {
   pictures?: Picture[],
 }
 
-export const showsApi = createApi({
-  reducerPath: 'showsApi',
-  baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_BACKEND_BASE_URL}/api/`, credentials: "include" }),
+export const showsApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getAllShows: builder.query<ShowType[], Record<string, string> | void>({
       query: (params) => {
@@ -21,6 +19,7 @@ export const showsApi = createApi({
         }
         return 'shows/'
       },
+      providesTags: ["Shows"]
     }),
     getShowDetail: builder.query<ShowType, number>({
       query: (id) => `shows/${id}`
