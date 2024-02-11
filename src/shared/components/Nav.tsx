@@ -1,18 +1,20 @@
 import { Link } from "react-router-dom";
 import { DarkModeToggle } from "./DarkModeToggle";
 import AALogo from "../../../public/AALogo.jpg";
+import { CartNavComponent } from "../../features/cart/components/CartNavComponent";
+
 
 export const Nav = () => {
   return (
-    <div className="sticky z-40 top-0 flex items-center justify-between p-4 h-20 bg-gradient-to-r from-darkBlue to-primary">
-      <div className="text-white text-2xl font-semibold w-44 h-44 rounded-full overflow-hidden">
+    <div className="flex sticky top-0 z-40 justify-between items-center p-4 h-20 bg-gradient-to-r from-darkBlue to-primary">
+      <div className="overflow-hidden w-44 h-44 text-2xl font-semibold text-white rounded-full">
         <img
           src={AALogo}
           alt="Atomic Aurora"
-          className="w-full h-full object-cover"
+          className="object-cover w-full h-full"
         />
       </div>
-      <nav className="flex items-center justify-between">
+      <nav className="flex justify-between items-center">
         <ul className="flex space-x-4">
           <li>
             <Link to="/home" className="navLink">Home</Link>
@@ -31,7 +33,8 @@ export const Nav = () => {
           </li>
         </ul>
       </nav>
-      <ul className="flex justify-end">
+      <ul className="flex justify-end space-x-4">
+        <CartNavComponent />
         <li>
           <Link to="/login" className="navLink">Login</Link>
         </li>

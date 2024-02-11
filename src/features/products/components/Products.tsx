@@ -10,7 +10,7 @@ export const Products = () => {
     return <LoadingIcon />
   }
   return (
-    <div className="flex flex-row flex-wrap items-center justify-center w-full h-full flex-grow">
+    <div className="flex flex-row flex-wrap flex-grow items-center justify-center w-full h-full border-2 border-blue-500">
       {data?.map((product) => {
           return (
             <Product product={product}/>

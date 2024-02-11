@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { apiSlice } from "../../../../state/services/shared/apiSlice"
 
 
 export interface User {
@@ -23,8 +23,7 @@ export interface GoogleLoginRequest {
   code?: string
 }
 
-export const authApi = createApi({
-  baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_BACKEND_BASE_URL}/api/`, credentials: "include" }),
+export const authApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     usernamePasswordLogin: builder.mutation<UserResponse, LoginRequest>({
       query: (credentials) => ({

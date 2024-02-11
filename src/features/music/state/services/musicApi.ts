@@ -1,4 +1,4 @@
-import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
+import { apiSlice } from '../../../../state/services/shared/apiSlice'
 
 export type SpotifyResponse = {
   tracks: SpotifyTrack[],
@@ -14,9 +14,7 @@ export type Album = {
   album_type: string
 }
 
-export const musicApi = createApi({
-  reducerPath: 'musicApi',
-  baseQuery: fetchBaseQuery({ baseUrl: `${import.meta.env.VITE_BACKEND_BASE_URL}/api/`, credentials: "include" }),
+export const musicApi = apiSlice.injectEndpoints({
   endpoints: (builder) => ({
     getSpotifyTopTracks: builder.query<SpotifyResponse, Record<string, string> | void>({
       query: () => {
